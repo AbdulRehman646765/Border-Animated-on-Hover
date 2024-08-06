@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  gap: 7vw;
+}
+
+.card-animated,
+.card-animated-2 {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 350px;
+  height: 500px;
+  background-color: #222;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card-animated span,
+.card-animated-2 span {
+  color: rgba(254, 254, 254, 0.1);
+  font-size: 10em;
+  z-index: 1;
+}
+
+.card-animated::before {
+  position: absolute;
+  content: "";
+  width: 350px;
+  height: 500px;
+  background-color: tomato;
+  border-radius: 15px;
+  z-index: -1;
+  transition: 0.3s;
+  animation: animate 2s linear infinite;
+}
+
+.card-animated:hover::before {
+  width: 363px;
+  height: 513px;
+}
+
+.card-animated:hover span, .card-animated-2:hover span {
+  color: rgba(254, 254, 254, 0.4);
+}
+
+@keyframes animate {
+  50% {
+    filter: hue-rotate(350deg);
+  }
+}
+
+.card-animated-2::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 180%;
+  background-color: #fff;
+  transform: rotate(45deg);
+}
+
+.card-animated-2 {
+  overflow: hidden;
+}
+
+.card-animated-2:hover::before {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card-animated-2::after {
+  position: absolute;
+  inset: 5px;
+  content: "";
+  background-color: #222;
+  border-radius: 8px;
+}
+
+.made-with {
+  text-align: center;
+  font-size: 20px;
+  color: rgba(254, 254, 254, 0.4);
+  font-weight: 500;
+}
+
+.made-with .heart {
+  color: rgb(224, 0, 0);
+  text-shadow: 0 0 3px red;
+}
+
+.made-with .my-name {
+  color: #48a300;
+  font-weight: 700;
+  animation: animate 2s linear infinite;
+}
+
+.made-with .my-name:hover{
+    color: #fff;
+}
